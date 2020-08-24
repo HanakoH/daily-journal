@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+    <header>
+        <div>
+            <logo>
+                <img src="./images/HanakosJournal-200x200-px.png" alt="Hanako's Journal Logo">
+            </logo>
+        </div>
+        <div>
+            <div class="name">
+                <h1>
+
+                </h1>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>
+        <h2>Daily Journal</h2>
+            <form action="">
+                <fieldset>
+                    <label for="journalDate">Date of Entry</label>
+                    <input type="date" name="journalDate" id="journalDate">
+                </fieldset>
+                <fieldset>
+                    <label for="conceptsCovered">Concepts Covered</label>
+                    <textarea name="conceptsCovered" id="conceptsCovered" cols="30" rows="2"></textarea>
+                </fieldset>
+                <fieldset>
+                    <label for="journalEntry">Journal Entry</label>
+                    <textarea name="journalEntry" id="journalEntry" cols="30" rows="10"></textarea>
+                </fieldset>
+                <fieldset>
+                    <label for="plansForPracticing">Plans for Practicing</label>
+                    <textarea name="plansForPracticing" id="plansForPracticing" cols="30" rows="6"></textarea>
+                </fieldset>
+                <fieldset>
+                    <label for="mood">Mood</label>
+                    <select name="mood" id="mood">
+                        <option value="null">-----</option>
+                        <option value="rad">Rad</option>
+                        <option value="excited">Excited</option>
+                        <option value="contemplative">Contemplative</option>
+                        <option value="great">Great</option>
+                        <option value="good">Good</option>
+                        <option value="meh">Meh</option>
+                        <option value="notOk">Not Ok</option>
+                        <option value="awful">Awful</option>
+                        <option value="completelyLost">Completely Lost</option>
+                    </select>
+                </fieldset>
+                <button type="submit">Complete Journal Entry</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
