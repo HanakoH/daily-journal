@@ -1,3 +1,6 @@
-import { EntryListComponent } from './JournalEntryList.js';
+console.log("Hey cutie! Keep hustlin'")
 
-EntryListComponent()
+import { JournalFormComponent } from "./JournalForm.js"
+
+JournalFormComponent()
+
