@@ -7,14 +7,18 @@
  */
 
 // This is the original data.
-const journal = []
+const journalEntries = []
+
+const dispatchStateChangeEvent = () => {
+    eventHub.dispatchEvent(new CustomEvent("journalStateChanged"))
+}
 
 /*
     You export a function that provides a version of the
     raw data in the format that you want
 */
 export const useJournalEntries = () => {
-    const sortedByDate = journal.sort(
+    const sortedByDate = journalEntries.sort(
         (currentEntry, nextEntry) =>
             Date.parse(currentEntry.date) - Date.parse(nextEntry.date)
     )
@@ -26,8 +30,20 @@ export const getEntries = () => {
         .then(response => response.json())
         .then(parsedEntries => {
             // What should happen when we finally have the array?
-            entries = parsedEntries
+            journalEntries = parsedEntries
         })
 }
 
+export const saveJournalEntry = newJournalEntry => {
+    debugger;
+    return fetch("http://localhost:8088/entries", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(newJournalEntry)
+    }) 
+        .then(getEntries)  // <-- Get all journal entries
+        .then(dispatchStateChangeEvent)  // <-- Broadcast the state change event
+}
 

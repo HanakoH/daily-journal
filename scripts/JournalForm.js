@@ -1,4 +1,30 @@
+import { saveJournalEntry } from "./JournalDataProvider.js"
+
 const contentTarget = document.querySelector(".formContainer")
+
+const eventHub = document.querySelector("body")
+
+eventHub.addEventListener("click", clickEvent => {
+    if(clickEvent.target.id === "submit") {
+    
+        const journalDateInput = document.querySelector("#journalDate")
+        const conceptsCoveredInput = document.querySelector("#conceptsCovered")
+        const journalEntryInput = document.querySelector("#journalEntry")
+        const plansForPracticingInput = document.querySelector("#plansForPracticing")
+        const moodInput = document.querySelector("#mood")
+        if (journalDateInput.value !== "" && conceptsCoveredInput.value !== "" && journalEntryInput.value !== "" && plansForPracticingInput.value !== "" && moodInput.value !== "0" ) {
+            const newEntry = {
+                "date": journalDateInput.value,
+                "concept": conceptsCoveredInput.value,
+                "entry": journalEntryInput.value,
+                "improve": plansForPracticingInput.value,
+                "mood": parseInt(moodInput.value)
+            }
+            saveJournalEntry(newEntry)
+            // .then(JournalFormComponent)
+        }
+    }
+})
 
 export const JournalFormComponent = () => {
     contentTarget.innerHTML = `
@@ -21,7 +47,7 @@ export const JournalFormComponent = () => {
     <fieldset>
         <label for="mood">Mood</label>
             <select name="mood" id="mood">
-                <option value="null">-----</option>
+                <option value="null" hidden>-----</option>
                 <option value="rad">Rad</option>
                 <option value="excited">Excited</option>
                 <option value="contemplative">Contemplative</option>
@@ -33,6 +59,6 @@ export const JournalFormComponent = () => {
                 <option value="completelyLost">Completely Lost</option>
             </select>
     </fieldset>
-    <button type="submit">Complete Journal Entry</button>
+    <button id="submit" type="button">Complete Journal Entry</button>
     `
 }
