@@ -1,28 +1,28 @@
 {
   "entries": [
     {
-      "id": 1,
-      "date": "08/11/2020",
+      "date": "2020-08-11",
       "concept": "Flexbox CSS",
       "entry": "We learned how to make grid layouts with Flexbox in CSS.",
       "improve": "I will be practicing these concepts using Code Wars later this week",
-      "mood": "Good"
+      "mood": "Good",
+      "id": 1
     },
     {
-      "id": 2,
-      "date": "08/13/2020",
+      "date": "2020-08-13",
       "concept": "Personality Types and GitHub",
       "entry": "Learned our personalities and got our feet wet with GitHub and pushing things.",
       "improve": "I will try rosemary since I am told it helps with brain things. Arrggg",
-      "mood": "Confused"
+      "mood": "Confused",
+      "id": 2
     },
     {
-      "id": 3,
-      "date": "08/19/2020",
+      "date": "2020-08-19",
       "concept": "Working with Objects",
       "entry": "Started Martin's Aquarium and was working with objects.",
       "improve": "Put together the first part of Martin's aquarium and started pulling fish info.",
-      "mood": "Confused"
+      "mood": "Confused",
+      "id": 3
     },
     {
       "date": "2020-09-18",
