@@ -5,7 +5,7 @@
       "concept": "Flexbox CSS",
       "entry": "We learned how to make grid layouts with Flexbox in CSS.",
       "improve": "I will be practicing these concepts using Code Wars later this week",
-      "mood": "Good",
+      "moodId": 3,
       "id": 1
     },
     {
@@ -13,7 +13,7 @@
       "concept": "Personality Types and GitHub",
       "entry": "Learned our personalities and got our feet wet with GitHub and pushing things.",
       "improve": "I will try rosemary since I am told it helps with brain things. Arrggg",
-      "mood": "Confused",
+      "moodId": 4,
       "id": 2
     },
     {
@@ -21,7 +21,7 @@
       "concept": "Working with Objects",
       "entry": "Started Martin's Aquarium and was working with objects.",
       "improve": "Put together the first part of Martin's aquarium and started pulling fish info.",
-      "mood": "Confused",
+      "moodId": 4,
       "id": 3
     },
     {
@@ -29,8 +29,26 @@
       "concept": "Components",
       "entry": "Finished Truncheons and Flagons",
       "improve": "Keep workin",
-      "mood": null,
+      "moodId": 1,
       "id": 4
+    }
+  ],
+  "moods": [
+    {
+      "id": 1,
+      "label": "Excited"
+    },
+    {
+      "id": 2,
+      "label": "Contemplative"
+    },
+    {
+      "id": 3,
+      "label": "Good"
+    },
+    {
+      "id": 4,
+      "label": "Confused"
     }
   ]
 }

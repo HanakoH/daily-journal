@@ -1,6 +1,8 @@
+import { EntryForm } from "./journal/JournalForm.js";
+import { EntryListComponent } from "./journal/JournalEntryList.js";
+
 console.log("Hey cutie! Keep hustlin'")
 
-import { JournalFormComponent } from "./JournalForm.js"
-
-JournalFormComponent()
+EntryListComponent()
+EntryForm()
 
