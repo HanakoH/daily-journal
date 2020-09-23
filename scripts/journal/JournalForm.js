@@ -1,4 +1,5 @@
 import { saveJournalEntry } from "./JournalDataProvider.js"
+import { getMoods, useMoods } from "../mood/MoodDataProvider.js"
 
 const contentTarget = document.querySelector(".formContainer")
 
@@ -18,15 +19,14 @@ eventHub.addEventListener("click", clickEvent => {
                 "concept": conceptsCoveredInput.value,
                 "entry": journalEntryInput.value,
                 "improve": plansForPracticingInput.value,
-                "mood": parseInt(moodInput.value)
+                "moodId": parseInt(moodInput.value)
             }
             saveJournalEntry(newEntry)
-            // .then(JournalFormComponent)
         }
     }
 })
 
-export const JournalFormComponent = () => {
+export const JournalFormComponent = (allMoods) => {
     contentTarget.innerHTML = `
     <fieldset>
         <label for="journalDate">Date of Entry</label>
@@ -47,18 +47,22 @@ export const JournalFormComponent = () => {
     <fieldset>
         <label for="mood">Mood</label>
             <select name="mood" id="mood">
-                <option value="null" hidden>-----</option>
-                <option value="rad">Rad</option>
-                <option value="excited">Excited</option>
-                <option value="contemplative">Contemplative</option>
-                <option value="great">Great</option>
-                <option value="good">Good</option>
-                <option value="meh">Meh</option>
-                <option value="notOk">Not Ok</option>
-                <option value="confused">Confused</option>
-                <option value="completelyLost">Completely Lost</option>
+                ${
+                    allMoods.map((mood) => {
+                            return `<option value="${mood.id}">${mood.label}</option>`
+                        }
+                    ).join("")
+                }
             </select>
     </fieldset>
     <button id="submit" type="button">Complete Journal Entry</button>
     `
+}
+
+export const EntryForm = () => {
+    getMoods()
+    .then(() => {
+        const allMoods = useMoods()
+    JournalFormComponent(allMoods)
+    })
 }

@@ -7,7 +7,9 @@
  */
 
 // This is the original data.
-const journalEntries = []
+const eventHub = document.querySelector("body")
+
+let journalEntries = []
 
 const dispatchStateChangeEvent = () => {
     eventHub.dispatchEvent(new CustomEvent("journalStateChanged"))
@@ -25,8 +27,8 @@ export const useJournalEntries = () => {
     return sortedByDate
 }
 
-export const getEntries = () => {
-    return fetch("http://localhost:8088/entries") // Fetch from the API
+export const getJournalEntries = () => {
+    return fetch("http://localhost:8088/entries?_expand=mood") // Fetch from the API
         .then(response => response.json())
         .then(parsedEntries => {
             // What should happen when we finally have the array?
@@ -35,7 +37,6 @@ export const getEntries = () => {
 }
 
 export const saveJournalEntry = newJournalEntry => {
-    debugger;
     return fetch("http://localhost:8088/entries", {
         method: "POST",
         headers: {
@@ -43,7 +44,13 @@ export const saveJournalEntry = newJournalEntry => {
         },
         body: JSON.stringify(newJournalEntry)
     }) 
-        .then(getEntries)  // <-- Get all journal entries
         .then(dispatchStateChangeEvent)  // <-- Broadcast the state change event
 }
 
+export const deleteJournalEntry = deletedJournalEntry => {
+    return fetch(`http://localhost:8088/entries/${deletedJournalEntry.id}`, {
+        method: "DELETE"
+    })
+        // .then(getJournalEntries) 
+        .then(dispatchStateChangeEvent) 
+}
